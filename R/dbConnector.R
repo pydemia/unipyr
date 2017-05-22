@@ -1,6 +1,11 @@
 #` DataBase Connector Functions
-#`
-#`
+#'
+#' This function allows you to access Databases.
+#' @param query, username, password
+#' @keywords query, username, password
+#' @export
+#' @examples
+#' mdbQuery()
 
 
 mdbQuery <- function(query = NULL, username, password){
