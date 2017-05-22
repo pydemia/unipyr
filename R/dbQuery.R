@@ -8,7 +8,7 @@
 #' dbQuery()
 
 
-dbQuery <- function(db = c("dbname", "jdbcDriverPath", "url", "port"), query = NULL, username, password){
+dbQuery <- function(db = c(type="dbname", driver="jdbcDriverPath", url="url", port="port"), query = NULL, username, password){
     
     mariadb <- c("mariadb", "org.mariadb.jdbc.Driver", "jdbc:mariadb://%s:%s", "3306")
     mysql <- c("mysql", "org.mysql.jdbc.Driver", "jdbc:mysql://%s:%s", "3306")
@@ -27,10 +27,6 @@ dbQuery <- function(db = c("dbname", "jdbcDriverPath", "url", "port"), query = N
     if (dbname %in% rownames(dbStrDF)){
         classPath <- dbStrDF[dbname, 'classPath']
         url <- dbStrDF[dbname, 'url']
-        
-        if (dbport == NULL){
-            dbport <- dbStrDF[dbname, 'port']
-        }
         
     } else {
         print("DB type not prepared")

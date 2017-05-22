@@ -4,8 +4,8 @@
 \alias{dbQuery}
 \title{This function allows you to access Databases.}
 \usage{
-dbQuery(db = c("dbname", "jdbcDriverPath", "url", "port"), query = NULL,
-  username, password)
+dbQuery(db = c(type = "dbname", driver = "jdbcDriverPath", url = "url", port =
+  "port"), query = NULL, username, password)
 }
 \arguments{
 \item{db(dbname, }{jdbcDriverPath, url, port), query, username, password}

@@ -1,8 +1,8 @@
 #` DataBase Connector Functions
 #'
 #' This function allows you to access Databases.
-#' @param 
-#' @keywords 
+#' @param db db
+#' @keywords db db
 #' @export
 #' @examples
 #' dbStr()

@@ -6,9 +6,13 @@
 \usage{
 dbStr()
 }
+\arguments{
+\item{db}{db}
+}
 \description{
 This function allows you to access Databases.
 }
 \examples{
 dbStr()
 }
+\keyword{db}
