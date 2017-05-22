@@ -32,7 +32,7 @@ dbQuery <- function(db = c(type="dbname", driver="jdbcDriverPath", url="url", po
         print("DB type not prepared")
         break
     }
-    connURL <- sprintf(url, dburl, port)
+    connURL <- sprintf(url, dburl, dbport)
     
     drv <- RJDBC::JDBC(classPath, jdbcPath)
     conn <- RJDBC::dbConnect(drv, connURL, username, password)
