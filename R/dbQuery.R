@@ -38,7 +38,7 @@ dbQuery <- function(db = c(type="dbname", driver="jdbcDriverPath", url="url", po
     conn <- RJDBC::dbConnect(drv, connURL, username, password)
     res <- RJDBC::dbGetQuery(conn, query)
     
-    RJDBC::dbDisconnect(jdbcConnection)
+    RJDBC::dbDisconnect(conn)
     print(head(res))
     
     return(res)
