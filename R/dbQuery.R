@@ -24,12 +24,12 @@ dbQuery <- function(db = c(type="dbname", driver="jdbcDriverPath", url="url", po
     dburl <- db[3]
     dbport <- db[4]
     
-    if (dbname %in% base::rownames(dbStrDF)){
-        classPath <- dbStrDF[dbname, 'classPath']
-        url <- dbStrDF[dbname, 'url']
+    if (!dbname %in% base::rownames(dbStrDF)){
+        base::stop("DB type not prepared")
         
     } else {
-        base::stop("DB type not prepared")
+        classPath <- dbStrDF[dbname, 'classPath']
+        url <- dbStrDF[dbname, 'url']
     }
     
     connURL <- base::sprintf(url, dburl, dbport)
