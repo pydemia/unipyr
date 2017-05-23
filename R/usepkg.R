@@ -10,7 +10,7 @@
   
   
 usepkg <- function(pkg) {
-    if (!is.element(pkg, installed.packages()[,1]))
-        install.packages(pkg, dep = TRUE)
-        require(pkg, character.only = TRUE)
+    if (!base::is.element(pkg, utils::installed.packages()[,1]))
+        utils::install.packages(pkg, dep = TRUE)
+        base::require(pkg, character.only = TRUE)
 }

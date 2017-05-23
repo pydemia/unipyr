@@ -5,7 +5,7 @@
 #' @keywords db(dbname, jdbcDriverPath, url, port), query, username, password
 #' @export
 #' @examples
-#' dbQuery()
+#' dbQuery((db=c(type="mariadb", driver="~/mariadb-java-client-1.5.6.jar", url="hosturl", port="3306"), query="SELECT * FROM employees.employees LIMIT 10;", "user", "passwd"))
 
 
 dbQuery <- function(db = c(type="dbname", driver="jdbcDriverPath", url="url", port="port"), query = NULL, username, password){

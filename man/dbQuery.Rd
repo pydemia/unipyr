@@ -14,7 +14,7 @@ dbQuery(db = c(type = "dbname", driver = "jdbcDriverPath", url = "url", port =
 This function allows you to access Databases.
 }
 \examples{
-dbQuery()
+dbQuery((db=c(type="mariadb", driver="~/mariadb-java-client-1.5.6.jar", url="hosturl", port="3306"), query="SELECT * FROM employees.employees LIMIT 10;", "user", "passwd"))
 }
 \keyword{db(dbname,}
 \keyword{jdbcDriverPath,}

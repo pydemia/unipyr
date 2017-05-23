@@ -13,6 +13,6 @@ vif_loop(in_frame, thresh = 10, trace = F, ...)
 This function allows you to access Databases.
 }
 \examples{
-vif_loop()
+vif_loop(in_frame,thresh=10, trace=F, ...)
 }
 \keyword{package,}

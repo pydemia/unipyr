@@ -5,11 +5,13 @@
 #' @keywords package,
 #' @export
 #' @examples
-#' vif_loop()
+#` importFrom("stats", "formula", "lm")
+#` importFrom("utils", "flush.console", "install.packages", "installed.packages")
+#' vif_loop(in_frame,thresh=10, trace=F, ...)
   
   
   
-vif_loop <- function(in_frame,thresh=10, trace=F,...){
+vif_loop <- function(in_frame,thresh=10, trace=F, ...){
     
 
     if(class(in_frame) != 'data.frame') in_frame<-data.frame(in_frame)
@@ -22,8 +24,8 @@ vif_loop <- function(in_frame,thresh=10, trace=F,...){
         for(val in var_names){
             regressors <- var_names[-which(var_names == val)]
             form <- paste(regressors, collapse = '+')
-            form_in<-formula(paste(val,' ~ .'))
-            vif_init[[val]]<- fmsb::VIF(lm(form_in,data=in_frame,...))
+            form_in <- stats::formula(paste(val,' ~ .'))
+            vif_init[[val]]<- fmsb::VIF(stats::lm(form_in,data=in_frame,...))
         }
         vif_max<-max(unlist(vif_init))
 
@@ -49,8 +51,8 @@ vif_loop <- function(in_frame,thresh=10, trace=F,...){
                 for(val in var_names){
                     regressors <- var_names[-which(var_names == val)]
                     form <- paste(regressors, collapse = '+')
-                    form_in <- formula(paste(val,' ~ .'))
-                    vif_add <- fmsb::VIF(lm(form_in,data=in_dat,...))
+                    form_in <- stats::formula(paste(val,' ~ .'))
+                    vif_add <- fmsb::VIF(stats::lm(form_in,data=in_dat,...))
                     vif_vals[[val]] <- vif_add
                 }
 
@@ -67,7 +69,7 @@ vif_loop <- function(in_frame,thresh=10, trace=F,...){
                         prmatrix(vif_vals,collab='vif',rowlab=row.names(vif_vals),quote=F)
                         cat('\n')
                         cat('removed: ', names(vif_max),unlist(vif_max),'\n\n')
-                        flush.console()
+                        utils::flush.console()
                     }
 
                     in_dat<-in_dat[,!names(in_dat) %in% names(vif_max)]
