@@ -15,8 +15,8 @@ dbQuery <- function(db = c(type="dbname", driver="jdbcDriverPath", url="url", po
     postgresql <- c("postgresql", "org.postgresql.Driver", "jdbc:postgresql://%s:%s","5432")
     ibmdb2 <- c("ibmdb2", "com.ibm.db2.jcc.DB2Driver", "jdbc:db2://%s:%s", "50000")
     oracle <- c("oracle", "oracle.jdbc.OracleDriver", "jdbc:oracle:thin:@//%s:%s", "1521")
-    dbStrDF <- t(data.frame(mariadb, mysql, postgresql, ibmdb2, oracle))
-    colnames(dbStrDF) <- c("dbname", "classPath", "url", "port")
+    dbStrDF <- base::t(base::data.frame(mariadb, mysql, postgresql, ibmdb2, oracle))
+    base::colnames(dbStrDF) <- c("dbname", "classPath", "url", "port")
 
 
     dbname <- db[1]
@@ -24,22 +24,22 @@ dbQuery <- function(db = c(type="dbname", driver="jdbcDriverPath", url="url", po
     dburl <- db[3]
     dbport <- db[4]
     
-    if (dbname %in% rownames(dbStrDF)){
+    if (dbname %in% base::rownames(dbStrDF)){
         classPath <- dbStrDF[dbname, 'classPath']
         url <- dbStrDF[dbname, 'url']
         
-    } else {
-        print("DB type not prepared")
-        break
+    } 
+    else {
+        base::stop("DB type not prepared")
     }
-    connURL <- sprintf(url, dburl, dbport)
+    connURL <- base::sprintf(url, dburl, dbport)
     
     drv <- RJDBC::JDBC(classPath, jdbcPath)
     conn <- RJDBC::dbConnect(drv, connURL, username, password)
     res <- RJDBC::dbGetQuery(conn, query)
     
     RJDBC::dbDisconnect(conn)
-    print(head(res))
+    base::print(utils::head(res))
     
     return(res)
 }
