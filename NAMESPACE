@@ -3,3 +3,4 @@
 export(dbQuery)
 export(dbStr)
 export(usepkg)
+export(vif_loop)

@@ -1,6 +1,6 @@
 Package: unipyr
 Title: Useful tools for Data Scientists
-Version: 0.0.1.02
+Version: 0.0.1.03
 Authors@R: person("Young Ju", "Kim", email = "pydemia@gmail.com", role = c("aut", "cre"))
 Description: Useful tools for Data Scientists
 Depends: R (>= 3.4.0)
