@@ -28,10 +28,10 @@ dbQuery <- function(db = c(type="dbname", driver="jdbcDriverPath", url="url", po
         classPath <- dbStrDF[dbname, 'classPath']
         url <- dbStrDF[dbname, 'url']
         
-    } 
-    else {
+    } else {
         base::stop("DB type not prepared")
     }
+    
     connURL <- base::sprintf(url, dburl, dbport)
     
     drv <- RJDBC::JDBC(classPath, jdbcPath)
