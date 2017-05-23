@@ -2,3 +2,4 @@
 
 export(dbQuery)
 export(dbStr)
+export(usepkg)
